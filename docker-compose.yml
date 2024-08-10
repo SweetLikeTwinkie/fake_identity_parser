@@ -1,0 +1,22 @@
+services:
+  mysql_db:
+    build: .
+    container_name: identities-container
+    environment:
+      MYSQL_ROOT_PASSWORD: Tt45PT!@#$
+      MYSQL_DATABASE: fake_identities_db
+      MYSQL_USER: twinkie
+      MYSQL_PASSWORD: slavik12
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - mysql_network
+
+volumes:
+  mysql_data:
+
+networks:
+  mysql_network:
+    driver: bridge
